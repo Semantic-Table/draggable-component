@@ -24,7 +24,6 @@ export const movementAnimation = trigger('movement', [
 })
 export class DraggableComponent {
   public isDraggable = true;
-  public isRotatable = false;
 
   public isDragged = false;
 
@@ -50,7 +49,7 @@ export class DraggableComponent {
     event: PointerEvent
   ) {
     console.log('pointerup');
-    
+
     event.preventDefault();
     this.dragEnd(event);
     this.isDragged = false;
@@ -61,7 +60,7 @@ export class DraggableComponent {
     event: PointerEvent
   ): void {
     console.log('pointerdown');
-    
+
     this.dragStart(event);
     if (this.isDragged) {
       this.isDragged = false;
@@ -73,20 +72,18 @@ export class DraggableComponent {
   @HostListener('pointermove', ['$event']) public handleSwipe(
     event: PointerEvent
   ): void {
-    
     console.log('pointermove');
-    
+
     this.dragMove(event);
 
     if (this.isDraggable && this.isDragged) {
-    this.renderer.setProperty(this.ref.nativeElement, '@movement', {
-      value: 'move',
-      params: {
-        x: event.pageX - this.ref.nativeElement.offsetWidth / 2,
-        y: event.pageY - this.ref.nativeElement.offsetHeight / 2,
-      },
-    });
-    
+      this.renderer.setProperty(this.ref.nativeElement, '@movement', {
+        value: 'move',
+        params: {
+          x: event.pageX - this.ref.nativeElement.offsetWidth / 2,
+          y: event.pageY - this.ref.nativeElement.offsetHeight / 2,
+        },
+      });
     }
   }
 

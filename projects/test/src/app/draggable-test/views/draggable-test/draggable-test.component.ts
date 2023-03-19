@@ -17,7 +17,6 @@ export class DraggableTestComponent
   extends DraggableComponent
   implements OnInit
 {
-  public override isRotatable = false;
   public i = 0;
 
   constructor(

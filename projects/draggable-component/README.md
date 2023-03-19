@@ -16,13 +16,6 @@ public dragMove();
 public dragEnd();
 ```
 
-You can make your component rotate to the
-closest edge of your window by the variable isRotatable to true.
-
-```
-public isRotatable = false // default set to false
-```
-
 To deactivate the drag you can set isDraggable to false.
 
 ```
